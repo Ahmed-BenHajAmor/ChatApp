@@ -1,0 +1,64 @@
+.chat{
+    width: 95%;
+    max-width: 15em;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chat__title{
+    text-align: center;
+    margin-bottom: 15px;
+}
+.box{
+    height: 70vh;
+    min-height: 500px;
+    width: 100%;
+    border: 1px rgba(45, 17, 148, 0.521) solid;
+    border-radius: 5px;
+    padding: 10px;
+
+}
+
+.chat > form{
+    display: flex;
+    gap: 10px;
+    
+}
+.chat input{
+    font-size: 15px;
+    padding: 10px; 
+    border: 1.7px rgba(45, 17, 148, 0.521) solid;
+    width: 100%;
+}
+
+
+.chat button{
+    padding: 10px 20px;
+    background-color: rgb(68, 65, 255);
+    border: none;
+    width: fit-content;
+    border-radius: 5px;
+    display: flex;
+    justify-self: center;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+
+}
+
+.create__room button:hover{
+    background-color: rgb(46, 43, 255);
+}
+
+.message__send{
+    margin-bottom: 5px;
+}
+.message__send > p{
+    font-size: 15px;
+    font-weight: 400;
+    max-width: 100%;
+    text-wrap: wrap;
+    word-wrap: break-word;  
+    word-break: break-word;
+}
