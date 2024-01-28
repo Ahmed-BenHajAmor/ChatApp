@@ -68,12 +68,22 @@
 
 .message__send{
     margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.my__message{
+    display: flex;
+    justify-content: end;
+    flex-direction: row-reverse;
 }
 .message__send > p{
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 17px;
+    font-weight: 600;
     max-width: 100%;
     text-wrap: wrap;
     word-wrap: break-word;  
     word-break: break-word;
 }
+

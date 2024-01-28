@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Chat.css'
 import { auth, db } from '../../config/firebase'
 import { collection, addDoc, serverTimestamp, query, where, onSnapshot, orderBy } from 'firebase/firestore'
+import { Avatar } from '@mui/material'
 
 function Chat({room}) {
   const messagesRef = collection(db, 'messages');
@@ -29,6 +30,7 @@ function Chat({room}) {
       await addDoc(messagesRef, {
         message,
         userName: auth?.currentUser?.displayName,
+        avatar: auth?.currentUser?.photoURL,
         room,
         time: serverTimestamp()
 
@@ -48,17 +50,18 @@ function Chat({room}) {
         })}
       </div>
       <form onSubmit={addMessage}>
-        <input value={message} onChange={(e)=>setMessage(e.target.value)} type="text" />
+        <input autoFocus value={message} onChange={(e)=>setMessage(e.target.value)} type="text" />
         <button type='submit'>sent</button>
       </form>
     </section>
   )
 }
 
-const Message = ({userName, message})=>{
+const Message = ({avatar, userName, message})=>{
   return (
-    <div className="message__send">
-      <p><b>{userName}</b>: <i>{message}</i></p>
+    <div className={`message__send ${userName==auth?.currentUser?.displayName && "my__message"}`}>
+      <div className="avatar"><Avatar alt='avatar' src={avatar}/></div>
+      <p>{message}</p>
     </div>
   )
 }
